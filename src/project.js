@@ -1,0 +1,38 @@
+export const project = {
+  kind: 'citizen',
+  slug: 'citizen-mission',
+  name: 'Citizen Mission',
+  port: 4325,
+  requirements: ['blimpy==2.1.4', 'turbo-seti==2.3.2', 'numpy==2.3.5', 'matplotlib==3.10.6'],
+  datasets: ['voyager-1'],
+  functions: ['sha', 'verified', 'version', 'citizen', 'main'],
+  tagline: [
+    'Retrouver Voyager dans une observation radio réelle.',
+    'Recover Voyager from a real radio observation.',
+    'Recuperar Voyager en una observación de radio real.',
+  ],
+  purpose: [
+    'Lire l’observation publique Voyager 1/GBT avec blimpy, chercher sa dérive Doppler avec turboSETI sur CPU et explorer spectrogramme, porteuse et provenance.',
+    'Read the public Voyager 1/GBT observation with blimpy, search its Doppler drift with turboSETI on CPU and explore the waterfall, carrier and provenance.',
+    'Leer la observación pública Voyager 1/GBT con blimpy, buscar su deriva Doppler con turboSETI en CPU y explorar espectrograma, portadora y procedencia.',
+  ],
+  tools: ['blimpy 2.1.4', 'turboSETI 2.3.2', 'CPU'],
+  prerequisites: [
+    'Python 3.11–3.13 et curl. Aucun GPU, Java ni ION requis.',
+    'Python 3.11–3.13 and curl. No GPU, Java or ION required.',
+    'Python 3.11–3.13 y curl. No se requiere GPU, Java ni ION.',
+  ],
+  topics: [
+    'space',
+    'spaceflight',
+    'voyager',
+    'radio-astronomy',
+    'seti',
+    'breakthrough-listen',
+    'doppler',
+    'signal-processing',
+    'citizen-science',
+    'open-source',
+  ],
+  version: '0.1.0',
+};

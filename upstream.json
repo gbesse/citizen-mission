@@ -1,0 +1,25 @@
+{
+  "repository": "https://github.com/gbesse/frontier-lab",
+  "commit": "0dde4a13f57c395063f5b783c64b59d6a845f6ee",
+  "extraction": "citizen",
+  "sourceSha256": {
+    "packages/space-mission-lab/src/commons.js": "c98afd24138297252d4729a95526ea1bc7890da0fa0df6758611819b9ba01de9",
+    "packages/space-mission-lab/src/commons-engine.js": "c07209eee2318451f24ef192ffec0d94efca0ee3ae1f8bb024e2107b70328049",
+    "studio/space-commons.js": "37a41f59567e713cc38dabf57d0b09ea4d0326205a14c7ecad8fd1f67fe8f2cd",
+    "studio/style.css": "61ba7db56140f6327b1aa3bcd230224890fe098dc8fb0cb0fc93cd32f4cf327e",
+    "studio/space.css": "d23c03dce756f2d618ba8925149bf092e158dd6cfda3ffa6e3adedf73119bfaa",
+    "studio/space-commons.css": "66cf868a54dde01e3e075e190166e5fa9b090cb2cb3d9b0015702f1a1acf0d8b",
+    "studio/space-commons-page.js": "915117165431ec586ff2c637ce4eb5afa1c372b829c547e5b2564d6c5500b537",
+    "packages/space-mission-lab/engines/requirements.lock.txt": "47467e42e889fe8f8de8ac27f17d4aaeae0d7759315e1ffb83a91a52391a2d48",
+    "packages/space-mission-lab/fixtures/commons/citizen-06a1754c90aabe0b.json": "aaed37cfd5eed466c79899f742f714ce6482df7ca82a5b269743a5e3d8e6afed",
+    "packages/space-mission-lab/fixtures/commons/citizen-597207758ecfd71d.json": "887b9bd6c4a550ce7b3e951c97c94cefbc6a8706962f22b2e234c7f3134eb389",
+    "packages/space-mission-lab/fixtures/commons/citizen-5e3dd62fbe99dd47.json": "512c2468ba9aa86f6b5109a17cb7a5bc3903eeed904b218d91204be3de9ce7ae",
+    "packages/space-mission-lab/fixtures/commons/citizen-68190c314fa9763d.json": "c1de2f2ef963f60853ec242334060598c772fd2be41a4b101dd42bb7e05b393c",
+    "packages/space-mission-lab/fixtures/commons/citizen-d57f45b13d96fd8e.json": "26637182fdd00cf158bdea3e46896f80ba564de6289d324ac852a755908585d8",
+    "packages/space-mission-lab/fixtures/commons/citizen-eb6c13ec51e1d883.json": "4e92d3f9d2d794362fe8721529bdaf4584f12d67a50df3a04920dd6dfa63dc81",
+    "scripts/space-public-preview.mjs": "523c1f62fa6ac5b589c420551095c180c6faabfefdef95a258b6c0d45dc91ac7",
+    "LICENSE": "21f5a0a33c9be1b92476f41d82de75c482a3c9f514d408249429957a2571a200",
+    "AGENTS.md": "97ec7470463b413d04bd20dd38179bdd7f5ee946cb4fe1ea4bbc5fc239867eff",
+    ".prettierrc.json": "f583ff6d8ba542b76af46c4c024a0941b77aee51133bb0f69ec6eb1fa613de7e"
+  }
+}
