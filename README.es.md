@@ -1,5 +1,13 @@
 # Citizen Mission
 
+## Demo pública sin instalación
+
+[Abrir la demo ES](https://gbesse.github.io/citizen-mission/es/space/commons/citizen/?lang=es) · [FR](https://gbesse.github.io/citizen-mission/fr/space/commons/citizen/?lang=fr) · [EN](https://gbesse.github.io/citizen-mission/en/space/commons/citizen/?lang=en).
+
+La edición pública reproduce pruebas de cálculo archivadas y conserva retos diarios, ajustes compartibles y exportaciones JSON/PNG. No ejecuta motores ni expone API locales. El reto procede de un catálogo fijo; no se presupone clasificación mundial ni audiencia externa. GitHub Pages se reconstruye y prueba con cada cambio de `main`.
+
+Para alojar bajo una ruta, usar `SITE_BASE_PATH=/citizen-mission/ npm run build`. Sin esta variable el sitio sigue funcionando en la raíz de un dominio. Los tres idiomas, enlaces, recursos y pruebas permanecen bajo el mismo prefijo. `manifest.json` registra `basePath`.
+
 [![CI](https://github.com/gbesse/citizen-mission/actions/workflows/ci.yml/badge.svg)](https://github.com/gbesse/citizen-mission/actions) · [![MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE) · FR / EN / ES
 
 [Français](README.md) · [English](README.en.md) · Español

@@ -1,6 +1,6 @@
 {
   "name": "@gbesse/citizen-mission",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "main": "src/index.js",
   "exports": "./src/index.js",
@@ -40,7 +40,7 @@
     "type": "git",
     "url": "https://github.com/gbesse/citizen-mission.git"
   },
-  "homepage": "https://github.com/gbesse/citizen-mission#readme",
+  "homepage": "https://gbesse.github.io/citizen-mission/",
   "description": "FR : Retrouver Voyager dans une observation radio réelle. EN: Recover Voyager from a real radio observation. ES: Recuperar Voyager en una observación de radio real.",
   "keywords": [
     "space",
