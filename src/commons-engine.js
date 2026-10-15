@@ -1,3 +1,4 @@
+import { fitPeakDrift } from './drift-fit.js';
 import { spawn } from 'node:child_process';
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
@@ -109,6 +110,13 @@ export async function runCommons(
       result.receiptVerified = verifyMarketReceipt(result.receipt);
       result.engines.push({ name: 'ION', version: '4.2.0' });
     }
+    const driftAudit = kind === 'citizen' ? fitPeakDrift(result.peakTrack) : null;
+    if (
+      driftAudit &&
+      (!Number.isFinite(result.measuredPeakDriftHzSec) ||
+        Math.abs(driftAudit.slopeHzSec - result.measuredPeakDriftHzSec) > 1e-5)
+    )
+      throw new Error('COMMONS_DRIFT_INTEGRITY');
     const evidence = { kind, config, result };
     return {
       schemaVersion: 1,
@@ -120,6 +128,7 @@ export async function runCommons(
       elapsedMs: Date.now() - started,
       evidenceSha256: digest(JSON.stringify(evidence)),
       execution: 'fresh',
+      ...(driftAudit ? { driftAudit } : {}),
       notices: commonsNotices[kind],
       result,
     };
@@ -162,5 +171,12 @@ export async function readCommonsEvidence(kind, config, directory) {
     )
       throw new Error('COMMONS_EVIDENCE_INTEGRITY');
   }
-  return { ...report, execution: 'replay' };
+  const driftAudit = kind === 'citizen' ? fitPeakDrift(report.result.peakTrack) : null;
+  if (
+    driftAudit &&
+    (!Number.isFinite(report.result.measuredPeakDriftHzSec) ||
+      Math.abs(driftAudit.slopeHzSec - report.result.measuredPeakDriftHzSec) > 1e-5)
+  )
+    throw new Error('COMMONS_DRIFT_INTEGRITY');
+  return { ...report, execution: 'replay', ...(driftAudit ? { driftAudit } : {}) };
 }

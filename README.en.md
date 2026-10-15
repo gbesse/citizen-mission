@@ -68,3 +68,7 @@ npm run format:check
 `npm run build` exports `output/site` for static hosting at a domain root. This edition replays published cases, without exposing engines or local APIs.
 
 [Mission Benchmark Commons](https://github.com/gbesse/mission-benchmark-commons) · [Contact Market](https://github.com/gbesse/contact-market) · [Citizen Mission](https://github.com/gbesse/citizen-mission)
+
+## Independent drift recomputation
+
+`fitPeakDrift(peakTrack)` fits a centered line to exported frequencies (MHz) and times (seconds), returning slope in Hz/s, RMSE in Hz, duration, point count and R² (undefined for constant frequency). Replays and new computations expose `driftAudit` and require agreement within 0.00001 Hz/s of the recorded slope. This recomputes the exported peak, not raw signal: it proves no calibration, physical uncertainty, interference exclusion, extraterrestrial identification or OFF observation.
