@@ -68,3 +68,7 @@ npm run format:check
 `npm run build` exporta `output/site` para alojamiento estático en la raíz de un dominio. Esta edición reproduce casos publicados, sin exponer motores ni API locales.
 
 [Mission Benchmark Commons](https://github.com/gbesse/mission-benchmark-commons) · [Contact Market](https://github.com/gbesse/contact-market) · [Citizen Mission](https://github.com/gbesse/citizen-mission)
+
+## Recálculo independiente de deriva
+
+`fitPeakDrift(peakTrack)` ajusta una recta centrada a frecuencias exportadas (MHz) y tiempos (segundos), devuelve pendiente en Hz/s, RMSE en Hz, duración, puntos y R² (indefinido con frecuencia constante). Repeticiones y cálculos nuevos muestran `driftAudit` y exigen concordancia de 0,00001 Hz/s con la pendiente registrada. Recalcula el pico exportado, no señal original: no demuestra calibración, incertidumbre física, ausencia de interferencias, identificación extraterrestre ni observación OFF.
