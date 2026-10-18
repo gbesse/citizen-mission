@@ -72,3 +72,5 @@ npm run format:check
 ## Recalcul indépendant de la dérive
 
 `fitPeakDrift(peakTrack)` ajuste une droite centrée aux fréquences exportées (MHz) et temps (secondes), puis retourne pente en Hz/s, RMSE en Hz, durée, nombre de points et R² (indéfini pour une fréquence constante). Les replays et calculs nouveaux exposent `driftAudit` et exigent une concordance à 0,00001 Hz/s avec la pente enregistrée. Ce recalcul porte sur le pic exporté, pas le signal brut : il ne prouve ni calibration, incertitude physique, absence d’interférence, identification extraterrestre ni observation OFF.
+
+L’ajustement de dérive retire d’abord une origine commune de temps et de fréquence avant de calculer les moyennes : les petits écarts représentables ne sont plus noyés par la somme de grandes dates. Un test de translation synthétique vérifie pente et résidus ; les fixtures Voyager rejouées restent contrôlées. Cela n’ajoute aucune résolution aux valeurs déjà arrondies et ne transforme pas un ajustement de pic en identification indépendante de source.

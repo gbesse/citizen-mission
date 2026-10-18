@@ -46,3 +46,13 @@ test('invalid or unordered tracks cannot silently produce a drift', () => {
   ])
     assert.throws(() => fitPeakDrift(track));
 });
+
+test('drift fit remains translation invariant with large representable time origins', () => {
+  const track = [0, 2, 4, 6].map((timeSec) => ({ timeSec, frequencyMHz: 100 + timeSec / 1e6 }));
+  const baseline = fitPeakDrift(track),
+    shifted = fitPeakDrift(track.map((point) => ({ ...point, timeSec: point.timeSec + 2 ** 53 })));
+  assert.ok(Math.abs(shifted.slopeHzSec - baseline.slopeHzSec) < 1e-12);
+  assert.ok(Math.abs(shifted.slopeHzSec - 1) < 1e-8);
+  assert.ok(Math.abs(shifted.rmseHz - baseline.rmseHz) < 1e-12);
+  assert.equal(shifted.durationSec, 6);
+});

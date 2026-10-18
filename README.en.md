@@ -72,3 +72,5 @@ npm run format:check
 ## Independent drift recomputation
 
 `fitPeakDrift(peakTrack)` fits a centered line to exported frequencies (MHz) and times (seconds), returning slope in Hz/s, RMSE in Hz, duration, point count and R² (undefined for constant frequency). Replays and new computations expose `driftAudit` and require agreement within 0.00001 Hz/s of the recorded slope. This recomputes the exported peak, not raw signal: it proves no calibration, physical uncertainty, interference exclusion, extraterrestrial identification or OFF observation.
+
+Drift fitting removes a common time and frequency origin before averaging so small representable differences are not lost by summing large timestamps. A synthetic translation test checks slope and residuals; replayed Voyager fixtures remain checked. This adds no resolution to already rounded values and does not turn a peak fit into independent source identification.
