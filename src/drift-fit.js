@@ -17,14 +17,16 @@ export function fitPeakDrift(track) {
     )
       invalid();
   const n = track.length,
-    meanTime = track.reduce((sum, p) => sum + p.timeSec, 0) / n,
-    meanFrequency = track.reduce((sum, p) => sum + p.frequencyMHz, 0) / n;
+    originTime = track[0].timeSec,
+    originFrequency = track[0].frequencyMHz,
+    meanTime = track.reduce((sum, p) => sum + (p.timeSec - originTime), 0) / n,
+    meanFrequency = track.reduce((sum, p) => sum + (p.frequencyMHz - originFrequency), 0) / n;
   let xx = 0,
     xy = 0,
     yy = 0;
   for (const p of track) {
-    const x = p.timeSec - meanTime,
-      y = (p.frequencyMHz - meanFrequency) * 1e6;
+    const x = p.timeSec - originTime - meanTime,
+      y = (p.frequencyMHz - originFrequency - meanFrequency) * 1e6;
     xx += x * x;
     xy += x * y;
     yy += y * y;
@@ -32,7 +34,9 @@ export function fitPeakDrift(track) {
   const slopeHzSec = xy / xx;
   let squaredError = 0;
   for (const p of track) {
-    const residual = (p.frequencyMHz - meanFrequency) * 1e6 - slopeHzSec * (p.timeSec - meanTime);
+    const residual =
+      (p.frequencyMHz - originFrequency - meanFrequency) * 1e6 -
+      slopeHzSec * (p.timeSec - originTime - meanTime);
     squaredError += residual * residual;
   }
   const rmseHz = Math.sqrt(squaredError / n);

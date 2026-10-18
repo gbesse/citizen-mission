@@ -72,3 +72,5 @@ npm run format:check
 ## Recálculo independiente de deriva
 
 `fitPeakDrift(peakTrack)` ajusta una recta centrada a frecuencias exportadas (MHz) y tiempos (segundos), devuelve pendiente en Hz/s, RMSE en Hz, duración, puntos y R² (indefinido con frecuencia constante). Repeticiones y cálculos nuevos muestran `driftAudit` y exigen concordancia de 0,00001 Hz/s con la pendiente registrada. Recalcula el pico exportado, no señal original: no demuestra calibración, incertidumbre física, ausencia de interferencias, identificación extraterrestre ni observación OFF.
+
+El ajuste de deriva elimina un origen común de tiempo y frecuencia antes de promediar para no perder diferencias pequeñas representables al sumar fechas grandes. Una prueba sintética de traslación verifica pendiente y residuos; se siguen comprobando fixtures Voyager. No añade resolución a valores ya redondeados ni convierte el ajuste en identificación independiente de fuente.
